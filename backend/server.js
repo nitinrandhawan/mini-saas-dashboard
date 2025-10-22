@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.config.js";
 dotenv.config();
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app = express();
 if (process.env.NODE_ENV === "development") {
@@ -28,6 +29,11 @@ connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+import userRoutes from "./routes/user.route.js";
+
+app.use("/api/v1/users", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
