@@ -42,7 +42,7 @@ const getLeads = async (req, res) => {
       return res.status(401).json({ message: "Unauthorized" });
     }
     const filter = req?.user?.role === "admin" ? {} : { owner: userId };
-    const leads = await Lead.find(filter);
+    const leads = await Lead.find(filter).populate("owner", "name email");
     return res.json({ message: "Leads fetched successfully", leads });
   } catch (error) {
     console.log("get leads error:", error.message);
@@ -57,13 +57,12 @@ const updateLead = async (req, res) => {
       return res.status(401).json({ message: "Unauthorized" });
     }
     const leadId = req.params.id;
-    const lead = await Lead.findById(leadId);
+    const lead = await Lead.findById(leadId).populate("owner", "name email");
 
     if (!lead) {
       return res.status(404).json({ message: "Lead not found" });
     }
-    console.log("role", req.user.role);
-
+   
     if (lead.owner.toString() !== userId && req?.user?.role !== "admin") {
       return res.status(403).json({
         message: "Forbidden: You don't have permission to update this lead",
