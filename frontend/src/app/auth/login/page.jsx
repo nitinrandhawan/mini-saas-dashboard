@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { axiosInstance } from "@/utils/axiosInstance.util";
 import toast from "react-hot-toast";
 import { login } from "@/store/slices/userSlice";
 import { useDispatch } from "react-redux";
@@ -29,7 +28,7 @@ const router = useRouter();
         password: "",
       });
       toast.success("Login successfully");
-      router.push("/");
+      router.push("/leads");
     } catch (error) {
       toast.dismiss(loading);
       toast.error(error || "Login failed");

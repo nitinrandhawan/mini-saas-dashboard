@@ -7,13 +7,32 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { signup } from "@/store/slices/userSlice";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 export default function SignupPage() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const handleSubmit = () => {
+const dispatch=useDispatch()
+const router=useRouter()
+ const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup data:", form);
-    // TODO: send to backend
+    const loading = toast.loading("Signing up...");
+    try {
+      await dispatch(signup(form)).unwrap();
+      toast.dismiss(loading);
+      setForm({
+        email: "",
+        password: "",
+        name: "",
+      });
+      toast.success("Sign up successfully");
+      router.push("/auth/login");
+    } catch (error) {
+      toast.dismiss(loading);
+      toast.error(error || "Signup failed");
+    }
   };
 
   return (

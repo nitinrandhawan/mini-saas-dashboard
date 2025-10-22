@@ -23,7 +23,7 @@ export const updateLead = createAsyncThunk(
       `/api/v1/leads/update-lead/${id}`,
       data
     );
-    return res.data;
+    return res.data?.lead;
   }
 );
 
@@ -55,9 +55,11 @@ const leadSlice = createSlice({
         state.items = state.items.filter((lead) => lead._id !== action.payload);
       })
       .addCase(updateLead.fulfilled, (state, action) => {
-        let lead = state.items.find((lead) => lead._id === action.payload._id);
-        if (lead) {
-          lead = action.payload;
+        const index = state.items.findIndex(
+          (lead) => lead._id === action.payload._id
+        );
+        if (index !== -1) {
+          state.items[index] = action.payload;
         }
       });
   },
