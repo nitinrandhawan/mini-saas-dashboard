@@ -32,8 +32,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 import userRoutes from "./routes/user.route.js";
+import leadRoutes from "./routes/lead.route.js";
 
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/leads", leadRoutes);
 
 const PORT = process.env.PORT || 5000;
 

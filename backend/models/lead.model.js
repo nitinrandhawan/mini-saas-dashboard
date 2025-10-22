@@ -6,16 +6,7 @@ const leadSchema = new mongoose.Schema(
     email: { type: String, required: true },
     status: {
       type: String,
-      enum: [
-        "new",
-        "contacted",
-        "interested",
-        "qualified",
-        "proposal_sent",
-        "follow_up",
-        "converted",
-        "lost",
-      ],
+      enum: ["new", "contacted", "qualified", "converted", "unqualified"],
       default: "new",
     },
     owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
@@ -23,4 +14,4 @@ const leadSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Lead", leadSchema);
+export const Lead = mongoose.model("Lead", leadSchema);
