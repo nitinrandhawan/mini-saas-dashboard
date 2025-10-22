@@ -35,11 +35,11 @@ export default function Sidebar() {
         className={`fixed top-0 left-0 h-screen bg-gray-900 text-white w-64 p-4 transition-transform transform z-50
           ${
             open ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 md:static`}
+          } md:translate-x-0 md:static `}
       >
         {/* Close button for mobile */}
         <div className="flex justify-between items-center md:hidden mb-6">
-          <h2 className="text-2xl font-bold">Admin Panel</h2>
+          <h2 className="text-2xl font-bold">Mini SaaS Dashboard</h2>
           <button onClick={() => setOpen(false)} className="focus:outline-none">
             <FaTimes size={24} />
           </button>
@@ -48,7 +48,7 @@ export default function Sidebar() {
         {/* Sidebar content */}
         <div className="md:block">
           <h2 className="hidden md:block text-2xl font-bold mb-6">
-            Admin Panel
+            Mini SaaS Dashboard
           </h2>
           <nav className="flex flex-col space-y-3">
             <Link
