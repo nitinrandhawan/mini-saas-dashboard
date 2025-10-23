@@ -48,6 +48,14 @@ You can use the following **admin credentials** to access the admin panel:
 - Clean and modern UI with **Tailwind CSS** and **Shadcn UI** components.  
 - Toast notifications for actions using **React Hot Toast**.
 
+
+### Design Decisions
+
+The dashboard was designed with simplicity and responsiveness in mind. Tailwind CSS and Shadcn UI were used for fast, consistent, and accessible styling. Redux Toolkit manages global state for leads and authentication, while the sidebar and table layouts are fully responsive. Role-based access ensures admins can manage all leads, whereas users can only view and edit their own, keeping data properly scoped.
+
+### Time Taken
+
+The project was developed, including frontend setup, API integration, and implementing CRUD operations. Extra focus was given to UX with toast notifications, modals, search, and status filtering, ensuring a clean for admin & users.
 ---
 
 

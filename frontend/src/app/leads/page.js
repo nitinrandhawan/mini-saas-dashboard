@@ -1,4 +1,4 @@
-import LeadsPage from '@/pages/lead'
+import LeadsPage from '@/app/pages/lead'
 import React from 'react'
 
 export const metadata = {
