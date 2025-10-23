@@ -11,7 +11,9 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
+const allowedOrigins = [
+  "http://13.233.17.57/"
+];
 app.use(
   cors({
     origin: (origin, callback) => {
