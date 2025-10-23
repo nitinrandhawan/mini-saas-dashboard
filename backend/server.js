@@ -34,6 +34,10 @@ app.use(cookieParser());
 import userRoutes from "./routes/user.route.js";
 import leadRoutes from "./routes/lead.route.js";
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/leads", leadRoutes);
 
