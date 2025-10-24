@@ -21,6 +21,10 @@ You can use the following **admin credentials** to access the admin panel:
 
 
 ---
+## Project Links
+
+- **API URL:** [https://api.nowisttech.store/](https://api.nowisttech.store/)  
+- **Web URL:** [https://nowisttech.store/](https://nowisttech.store/)
 
 ## Features
 
