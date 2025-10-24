@@ -12,7 +12,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const allowedOrigins = [
-  "http://13.233.17.57/"
+ "https://nowisttech.store",
+  "https://www.nowisttech.store"
 ];
 app.use(
   cors({
